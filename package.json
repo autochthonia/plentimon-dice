@@ -1,0 +1,32 @@
+{
+  "name": "plentimon",
+  "version": "0.0.1",
+  "description": "A dicebot for Exalted based loosely on an original by @strass",
+  "main": "plentimon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autochthonia/plentimon.git"
+  },
+  "keywords": [
+    "exalted3",
+    "discordjs",
+    "typescript",
+    "babel"
+  ],
+  "author": "autochthonia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/autochthonia/plentimon/issues"
+  },
+  "homepage": "https://github.com/autochthonia/plentimon#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "typescript": "^3.4.5"
+  }
+}
