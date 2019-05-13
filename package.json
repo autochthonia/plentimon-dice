@@ -2,9 +2,17 @@
   "name": "plentimon",
   "version": "0.0.1",
   "description": "A dicebot for Exalted based loosely on an original by @strass",
-  "main": "plentimon.js",
+  "main": "lib/plentimon.cjs.js",
+  "module": "lib/plentimon.esm.js",
+  "types": "lib/types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:rollup && build:types && npm run build:js",
+    "build:rollup": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -25,8 +33,22 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/yargs": "^13.0.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "regenerator-runtime": "^0.13.2",
+    "rollup": "^1.11.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.4",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.0",
+    "yargs": "^13.2.4"
   }
 }
