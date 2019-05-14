@@ -10,15 +10,10 @@ const extensions = [
 export default {
   external: [],
   input: "src/plentimon.ts",
-  output: [{
-      file: "pkg.main",
-      format: "cjs"
-    },
-    {
-      file: "pkg.module",
-      format: "es"
-    }
-  ],
+  output: {
+    file: "lib/index.js",
+    format: "cjs"
+  },
   plugins: [
     resolve({
       // use "module" field for ES6 module if possible
