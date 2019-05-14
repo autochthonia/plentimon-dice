@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import isNumber from 'lodash/isNumber';
 import isNil from 'lodash/isNil';
 import map from 'lodash/map';
-import range from 'lodash/range';
+import range from 'lodash/range'
 import reduce from 'lodash/reduce';
 import sample from 'lodash/sample';
 import times from 'lodash/times';
@@ -16,7 +16,7 @@ import times from 'lodash/times';
  */
 export const d10 = (): number => {
   const roll: number | undefined = sample(range(1, 10));
-  const result: number = roll + -1;
+  const result: number = (roll) ? roll : -1 ;
   if (result === -1) throw new Error('dice roll cannot return nil values!');
   else return result;
 }
@@ -31,7 +31,7 @@ export const d10 = (): number => {
  * @returns {number} the totall successes rolled
  */
 export const countSuccesses = (
-  roll,
+  roll: number,
   { targetNumber = 7, double = 10, autosuccesses = 0 } = {}
 ): number => {
   if (roll === undefined || (!isNumber(roll) && !isArray(roll))) {
@@ -62,8 +62,7 @@ export const countSuccesses = (
 export const rollDice = (numDice: number): number[] => {
   if (!isNumber(numDice) || numDice < 0)
     throw new Error("numDice must be a positive number");
-  const result: (number | undefined)[] =  times(numDice, d10);
-
+  const result: number[] =  times(numDice, d10);
   return result;
 };
 
@@ -77,14 +76,14 @@ export const rollDice = (numDice: number): number[] => {
  * @returns {number[]} reroll array
  */
 export const reroll = (
-  roll,
+  roll: number,
   { rerollArray, append = true, cascade = true }
 ) => {
   if (!isNumber(roll) && !isArray(roll))
     throw new Error("roll is required (die or array of dice)");
 
   if (!isArray(rerollArray)) throw new Error("reroll isn't an array");
-  rerollArray.forEach(r => {
+  rerollArray.forEach(r: number => {
     if (!isNumber(r)) throw new Error("reroll contains non-number values");
   });
   const rerollSet = new Set(rerollArray);
