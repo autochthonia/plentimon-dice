@@ -12,8 +12,11 @@ export const countSuccesses = (roll: Array<number>, config: RollConfig): number 
   let autosuccesses: number = (config.autosuccesses) ? config.autosuccesses : 0;
   return reduce(
     roll,
-    (successes, count, face) => {
-      return successes + count*(Number(face) >= config.targetNumber ? (Number(face) >= config.double ? 2 : 1) : 0);
+    (successes, count, face, roll) => {
+      if (! isUndefined(roll[face])) {
+        const currentTotal: number = successes + count*(Number(face) >= config.targetNumber ? (Number(face) >= config.double ? 2 : 1) : 0);
+        return currentTotal;
+      } else return successes;
     },
     autosuccesses
   );
