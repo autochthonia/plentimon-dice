@@ -1,6 +1,6 @@
 {
   "name": "plentimon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A dicebot for Exalted based loosely on an original by @strass",
   "main": "lib/plentimon-dice.js",
   "types": "lib/types/index.d.ts",
@@ -42,6 +42,6 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   }
 }
